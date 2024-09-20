@@ -6,16 +6,11 @@
 /*   By: dolifero <dolifero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 20:25:06 by dolifero          #+#    #+#             */
-/*   Updated: 2024/09/20 12:36:21 by dolifero         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:26:35 by dolifero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
-
-ClapTrap::ClapTrap() : name("ClapTrap"), hitPoints(10), energyPoints(10), attackDamage(0)
-{
-	std::cout << "ClapTrap " << name << " is constructed" << std::endl;
-}
 
 ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
 {
@@ -25,6 +20,7 @@ ClapTrap::ClapTrap(std::string name) : name(name), hitPoints(10), energyPoints(1
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
 	*this = other;
+	std::cout << "ClapTrap " << name << " is constructed" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
@@ -57,7 +53,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
 	if (hitPoints > 0 && energyPoints > 0)
 	{
-		if(amount > hitPoints)
+		if((int)amount > hitPoints)
 			hitPoints = 0;
 		else
 			hitPoints -= amount;

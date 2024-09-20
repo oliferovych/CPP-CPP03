@@ -6,7 +6,7 @@
 /*   By: dolifero <dolifero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 20:25:03 by dolifero          #+#    #+#             */
-/*   Updated: 2024/09/19 20:36:23 by dolifero         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:02:04 by dolifero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ class ClapTrap
 		int			energyPoints;
 		int			attackDamage;
 	public:
-		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &other);
 		ClapTrap &operator=(const ClapTrap &other);
