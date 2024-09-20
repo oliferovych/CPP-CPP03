@@ -6,7 +6,7 @@
 /*   By: dolifero <dolifero@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/19 20:25:06 by dolifero          #+#    #+#             */
-/*   Updated: 2024/09/19 20:44:00 by dolifero         ###   ########.fr       */
+/*   Updated: 2024/09/20 12:36:21 by dolifero         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(std::string const &target)
 {
-	if (hitPoints != 0 && energyPoints != 0)
+	if (hitPoints > 0 && energyPoints > 0)
 	{
 		std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << attackDamage << " points of damage!" << std::endl;
 		energyPoints--;
@@ -55,16 +55,19 @@ void ClapTrap::attack(std::string const &target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (hitPoints != 0 && energyPoints != 0)
+	if (hitPoints > 0 && energyPoints > 0)
 	{
-		hitPoints -= amount;
+		if(amount > hitPoints)
+			hitPoints = 0;
+		else
+			hitPoints -= amount;
 		std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!" << std::endl;
 	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (hitPoints != 0 && energyPoints != 0)
+	if (hitPoints > 0 && energyPoints > 0)
 	{
 		hitPoints += amount;
 		std::cout << "ClapTrap " << name << " repairs itself for " << amount << " points!" << std::endl;
